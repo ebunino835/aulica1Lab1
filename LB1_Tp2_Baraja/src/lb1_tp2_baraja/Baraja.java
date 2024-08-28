@@ -11,16 +11,16 @@ public class Baraja {
     ArrayList<Carta> cartas = new ArrayList<>();
 
     //Metodos
-    public static void agregarCartas(Carta carta){
+    public void agregarCartas(Carta carta){
 
-        cartas.add(carta)
+        cartas.add(carta);
     }
 
-    public static void barajar(ArrayList cartas){
+    public void barajar(){
 
         Collections.shuffle(cartas);
 
-        system.out.println("Luego de barajar: " + cartas);
+        System.out.println("Luego de barajar: " + cartas);
         
     }
     
