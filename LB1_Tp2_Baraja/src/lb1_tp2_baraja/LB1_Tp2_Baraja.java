@@ -9,13 +9,17 @@ public class LB1_Tp2_Baraja {
 
         Baraja baraja = new Baraja();
 
-        baraja.crearMazoEspanol();
+        
         baraja.mostrarMazo();
 
         System.out.println("----------------------");
         baraja.barajar();
-
-
+        
+        System.out.println(baraja.siguienteCarta());
+        System.out.println(baraja.siguienteCarta());
+        System.out.println(baraja.siguienteCarta());
+        System.out.println(baraja.siguienteCarta());
+        System.out.println("Le quedan: " + baraja.getContador());
 
 
 
