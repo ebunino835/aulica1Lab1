@@ -8,6 +8,11 @@ public class Baraja {
     
     private List<Carta> mazo;
     private int contador;
+
+    //Creo un arrayList para pasar las cartas salientes
+    ArrayList<Carta> nCartas = new ArrayList<>();
+
+    //-----------------------------------------------------------------------
     
     public Baraja() {
         this.contador = 40;
@@ -27,59 +32,40 @@ public class Baraja {
         return contador;
     }
 
-   
-       
-    //ArrayList<Carta> cartas = new ArrayList<>();
-
-    
-    //Metodos
-    
-    
-    
-    /*public void crearMazoEspanol(){
-        String[] palos = {"Oros", "Copas", "Espadas", "Bastos"};
-
-        for (String palo : palos) {
-            for (int valor = 1; valor <=7 ; valor++) {
-                carta = new Carta(valor, palo);
-                cartas.add(carta);
-            }
-
-            for (int valor = 10; valor <=12 ; valor++) {
-                carta = new Carta(valor, palo);
-                cartas.add(carta);
-            }
-        }
-    }*/
+    //-----------------------------------------------------------------------
 
     public void mostrarMazo() {
 
         for (Carta carta : mazo) {
             System.out.println(carta.toString());
-
         }
-
     }
+
+    //-----------------------------------------------------------------------
 
       public void barajar(){
 
         Collections.shuffle(mazo);
-
-        System.out.println("Luego de barajar");
         mostrarMazo();
 
     }
+
+    //-----------------------------------------------------------------------
 
     @Override
     public String toString() {
         return "Baraja{" +
                 "cartas=" + mazo +
-                '}' + "----------------";
+                '}';
     }
+
+    //-----------------------------------------------------------------------
+
     public String siguienteCarta(){
-        
         if(mazo.size()>0){
             String aux = mazo.get(0).toString();
+            //Agrego las cartas salientes a un nuevo array
+            nCartas.add(mazo.get(0));
             System.out.println("La siguiente carta es: ");
             mazo.remove(0);
             contador= contador-1;
@@ -88,21 +74,58 @@ public class Baraja {
             return "No hay más cartas. ";
         }
     }
-    
-    /*public String siguienteCarta(){
-        if(this.contador <40){
-            contador = contador+1;
-            System.out.println("La siguiente carta es: ");
-            return mazo.get(contador).toString();
-        } else {
-            return "No hay más cartas. ";
-        }
-            
-        //return carta;
-    }*/
-    
+
+    //-----------------------------------------------------------------------
+
     public void cartasDisponibles(){
-        
+
+        System.out.println(mazo.size());
+
+    }
+
+    //-----------------------------------------------------------------------
+
+    public void darCartas(int cantCartas){
+
+        if (mazo.size() > cantCartas){
+
+            for (int i = 0; i < cantCartas; i++) {
+
+                System.out.println("....");
+                System.out.println(this.siguienteCarta());
+
+            }
+
+        } else {
+
+            System.out.println("No hay cartas suficientes");
+
+        }
+
+    }
+
+    //-----------------------------------------------------------------------
+
+    public void cartasMonton(){
+
+        for (Carta nCarta : nCartas) {
+
+            System.out.println(nCarta.toString());
+
+        }
+
+    }
+
+    //-----------------------------------------------------------------------
+
+    public void mostrarBaraja(){
+
+        for (Carta carta : mazo) {
+
+            System.out.println(carta.toString());
+
+        }
+
     }
 
 }
