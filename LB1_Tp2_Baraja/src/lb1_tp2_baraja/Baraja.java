@@ -8,6 +8,19 @@ public class Baraja {
     }
 
     ArrayList<Carta> cartas = new ArrayList<>();
-   
 
+
+    //Metodos
+
+    public static void agregarCartas(Carta carta){
+
+        cartas.add(carta)
+    }
+
+    public static void barajar(ArrayList cartas){
+
+        
+        
+    }
+    
 }
